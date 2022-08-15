@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3959025c64105a4478854159fdc145c3, type: 3}
-  m_Name: RuinsTileData
+  m_Name: TankTileData
   m_EditorClassIdentifier: 
-  _view: {fileID: 11400000, guid: 412b71e660e16a64cb1134f2cf1d66d5, type: 2}
+  _view: {fileID: 11400000, guid: 5a08b91dcfe2d2148b4b406867d3fc71, type: 2}
   _strategy: {fileID: 11400000, guid: bca7792a553cf6b4284d0e997a7116da, type: 2}
+  _isPassable: 1

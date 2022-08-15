@@ -14,6 +14,9 @@ namespace SoleNar.Map
         public ITile GetTile(Vector3Int position) => 
             _tilesData[position];
 
+        public bool HasTile(Vector3Int position) =>
+            _tilesData.ContainsKey(position);
+
         public IEnumerator<KeyValuePair<Vector3Int, ITile>> GetEnumerator() => 
             _tilesData.GetEnumerator();
 

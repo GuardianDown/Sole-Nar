@@ -1,11 +1,9 @@
 {
-    "name": "SceneInitializerAssembley",
+    "name": "PlayerAssembly",
     "rootNamespace": "",
     "references": [
-        "GUID:17353e081c727884189269234fd27560",
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:f4cbed3920f5c874183bdced7dfd3db4",
-        "GUID:98fcb8fe710d4304aa2003b1ca8cac86"
+        "GUID:17353e081c727884189269234fd27560"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

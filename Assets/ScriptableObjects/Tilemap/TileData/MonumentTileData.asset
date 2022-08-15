@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3959025c64105a4478854159fdc145c3, type: 3}
-  m_Name: TreasureTileData
+  m_Name: MonumentTileData
   m_EditorClassIdentifier: 
-  _view: {fileID: 11400000, guid: 4f9cd36c9ad102c46ba86651f80728e5, type: 2}
+  _view: {fileID: 11400000, guid: d12ff9e15ce99b144b523ff861f22c1a, type: 2}
   _strategy: {fileID: 11400000, guid: bca7792a553cf6b4284d0e997a7116da, type: 2}
+  _isPassable: 1

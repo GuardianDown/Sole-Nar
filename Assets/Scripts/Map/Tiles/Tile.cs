@@ -12,7 +12,11 @@ namespace SoleNar.Map
         [SerializeField] 
         private TileStrategy _strategy = null;
 
+        [SerializeField]
+        private bool _isPassable;
+
         public TileBase View => _view;
         public TileStrategy Strategy => _strategy;
+        public bool IsPassable => _isPassable;
     }
 }
