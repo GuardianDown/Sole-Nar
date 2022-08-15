@@ -16,35 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: caa3c888701f67041b7c24482c01bb75
-  m_SerializeEntries:
-  - m_GUID: b2547027b5053ca418214b59bf46b928
-    m_Address: TilemapBuildData
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 2dd64d9bea36f9c4fa2d51628e04ca22
-    m_Address: Tile1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 3e5a16b14cfc26c4d938460723dfcb4f
-    m_Address: Tile2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: bca7792a553cf6b4284d0e997a7116da
-    m_Address: StrategyTwo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: ed217ee292925d1469dcab92f428a5e1
-    m_Address: StrategyOne
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 685be83fc289a7a43b9beb6e5eff04b4
-    m_Address: TilemapView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 67220acfc3b747a4bbf2917c0a8b30f3
-    m_Address: Camera
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c64394a73c59be242a83124c6fe84e8f, type: 2}
   m_SchemaSet:

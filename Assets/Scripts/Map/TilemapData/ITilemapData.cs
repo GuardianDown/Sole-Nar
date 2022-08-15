@@ -5,8 +5,10 @@ namespace SoleNar.Map
 {
     public interface ITilemapData : IEnumerable<KeyValuePair<Vector3Int, ITile>>
     {
-        public void AddTile(ITile tile, Vector3Int tilePosition);
+        void AddTile(ITile tile, Vector3Int tilePosition);
 
-        public ITile GetTile(Vector3Int position);
+        ITile GetTile(Vector3Int position);
+
+        bool HasTile(Vector3Int position);
     }
 }
