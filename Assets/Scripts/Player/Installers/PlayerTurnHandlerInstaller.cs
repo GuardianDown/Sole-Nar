@@ -5,6 +5,6 @@ namespace SoleNar.Player
     internal sealed class PlayerTurnHandlerInstaller : MonoInstaller
     {
         public override void InstallBindings() => 
-            Container.Bind<PlayerTurnHandler>().AsSingle();
+            Container.Bind<IPlayerTurnHandler>().To<PlayerTurnHandler>().AsSingle();
     }
 }

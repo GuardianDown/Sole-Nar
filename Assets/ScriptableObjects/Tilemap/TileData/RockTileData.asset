@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _view: {fileID: 11400000, guid: 0caf757f93bb03f498b7fd002efd4cac, type: 2}
   _strategy: {fileID: 11400000, guid: bca7792a553cf6b4284d0e997a7116da, type: 2}
+  _isPassable: 0
+  _wasteOfFuel: 0
