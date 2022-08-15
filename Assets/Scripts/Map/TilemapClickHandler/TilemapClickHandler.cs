@@ -12,6 +12,8 @@ namespace SoleNar.Map
         private readonly Camera _camera;
         private readonly Controls _controls;
 
+        public event Action<Vector3Int> onTilemapClick;
+
         [Inject]
         public TilemapClickHandler(ITilemapView tilemapView, Camera camera, Controls controls)
         {
@@ -21,8 +23,6 @@ namespace SoleNar.Map
 
             _controls.Enable();
         }
-
-        public event Action<Vector3Int> onTilemapClick;
 
         public void Enable() => 
             _controls.Map.Click.started += CallTileEvent;

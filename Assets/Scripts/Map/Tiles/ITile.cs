@@ -7,5 +7,6 @@ namespace SoleNar.Map
         TileBase View { get; }
         TileStrategy Strategy { get; }
         bool IsPassable { get; }
+        int WasteOfFuel { get; }
     }
 }

@@ -11,11 +11,13 @@ namespace SoleNar.SceneInitializer
 
         private readonly IPlayerMovement _playerMovement;
         private readonly IPlayerData _playerData;
-        private readonly PlayerTurnHandler _playerTurnHandler;
+        private readonly IPlayerTurnHandler _playerTurnHandler;
+        private readonly IPlayerDeath _playerDeath;
 
         [Inject]
         public GameSceneInitializer(ITilemapGenerator tilemapGenerator, ITilemapClickHandler tilemapClickHandler,
-            IPlayerMovement playerMovement, IPlayerData playerData, PlayerTurnHandler playerTurnHandler)
+            IPlayerMovement playerMovement, IPlayerData playerData, IPlayerTurnHandler playerTurnHandler,
+            IPlayerDeath playerDeath)
         {
             _tilemapGenerator = tilemapGenerator;
             _tilemapClickHandler = tilemapClickHandler;
@@ -23,6 +25,7 @@ namespace SoleNar.SceneInitializer
             _playerMovement = playerMovement;
             _playerData = playerData;
             _playerTurnHandler = playerTurnHandler;
+            _playerDeath = playerDeath;
 
             Initialize();
         }

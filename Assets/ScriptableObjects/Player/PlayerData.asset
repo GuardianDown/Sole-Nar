@@ -13,3 +13,18 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   _startPosition: {x: 0, y: 0, z: 0}
+  _startHelathValue: 15
+  _maxHealthValue: 15
+  _startFortitudeValue: 15
+  _maxFortitudeValue: 15
+  _startAttackStreingthValue: 1
+  _maxAttackStreingthValue: 5
+  _startStealthValue: 1
+  _maxStealthValue: 5
+  _startFuelValue: 10
+  _maxFuelValue: 10
+  _startResourceValue: 0
+  _maxResourceValue: 3
+  _startRepairKitValue: 0
+  _startTorpedoValue: 0
+  _startTimeToRestValue: 0

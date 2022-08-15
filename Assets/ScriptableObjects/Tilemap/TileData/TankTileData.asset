@@ -15,3 +15,4 @@ MonoBehaviour:
   _view: {fileID: 11400000, guid: 5a08b91dcfe2d2148b4b406867d3fc71, type: 2}
   _strategy: {fileID: 11400000, guid: bca7792a553cf6b4284d0e997a7116da, type: 2}
   _isPassable: 1
+  _wasteOfFuel: 1

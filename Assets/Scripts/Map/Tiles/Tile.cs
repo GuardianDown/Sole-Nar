@@ -15,8 +15,12 @@ namespace SoleNar.Map
         [SerializeField]
         private bool _isPassable;
 
+        [SerializeField]
+        private int _wasteOfFuel;
+
         public TileBase View => _view;
         public TileStrategy Strategy => _strategy;
         public bool IsPassable => _isPassable;
+        public int WasteOfFuel => _wasteOfFuel;
     }
 }
