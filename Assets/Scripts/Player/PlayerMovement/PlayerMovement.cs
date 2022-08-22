@@ -1,3 +1,4 @@
+using SoleNar.Animations;
 using SoleNar.Map;
 using UnityEngine;
 using Zenject;
@@ -6,7 +7,7 @@ namespace SoleNar.Player
 {
     internal sealed class PlayerMovement : IPlayerMovement
     {
-        private readonly ShipAnimation _player;
+        private readonly SpriteRendererCycleAnimation _player;
         private readonly ITilemapView _tilemapView;
 
         private Vector3Int _currentPosition;
@@ -15,7 +16,7 @@ namespace SoleNar.Player
         public Vector3Int CurrentPosition => _currentPosition;
 
         [Inject]
-        public PlayerMovement(ShipAnimation player, ITilemapView tilemapView)
+        public PlayerMovement(SpriteRendererCycleAnimation player, ITilemapView tilemapView)
         {
             _player = player;
             _tilemapView = tilemapView;

@@ -9,6 +9,6 @@ namespace SoleNar.Map
 
         void Disable();
 
-        event Action<Vector3Int> onTilemapClick;
+        event Action<string, Vector3Int> onTileClick;
     }
 }

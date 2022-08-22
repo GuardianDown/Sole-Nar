@@ -9,18 +9,10 @@ namespace SoleNar.Map
         [SerializeField] 
         private TileBase _view = null;
 
-        [SerializeField] 
-        private TileStrategy _strategy = null;
-
         [SerializeField]
-        private bool _isPassable;
-
-        [SerializeField]
-        private int _wasteOfFuel;
+        private string _id = null;
 
         public TileBase View => _view;
-        public TileStrategy Strategy => _strategy;
-        public bool IsPassable => _isPassable;
-        public int WasteOfFuel => _wasteOfFuel;
+        public string ID => _id;
     }
 }

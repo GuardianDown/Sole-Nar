@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb4ded4c52adce468fd4230cf72d1cb, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _startPosition: {x: 0, y: 0, z: 0}
+  _startPosition: {x: 1, y: 0, z: 0}
   _startHelathValue: 15
   _maxHealthValue: 15
   _startFortitudeValue: 15
@@ -23,8 +23,8 @@ MonoBehaviour:
   _maxStealthValue: 5
   _startFuelValue: 10
   _maxFuelValue: 10
-  _startResourceValue: 0
-  _maxResourceValue: 3
+  _startAmoniteValue: 0
+  _maxAmoniteValue: 0
   _startRepairKitValue: 0
   _startTorpedoValue: 0
   _startTimeToRestValue: 0

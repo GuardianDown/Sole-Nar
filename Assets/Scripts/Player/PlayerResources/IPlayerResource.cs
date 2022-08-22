@@ -4,10 +4,10 @@ namespace SoleNar.Player
 {
     public interface IPlayerResource<T>
     {
+        public string ID { get; }
+
         event Action<T> onResourceValueChanged;
 
-        void Increase(T value);
-
-        void Decrease(T value);
+        void AddValue(int value);
     }
 }

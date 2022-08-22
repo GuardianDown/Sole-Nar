@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SubmarineTileData
   m_EditorClassIdentifier: 
   _view: {fileID: 11400000, guid: 7b2df732686802244b555260db22a582, type: 2}
-  _strategy: {fileID: 11400000, guid: bca7792a553cf6b4284d0e997a7116da, type: 2}
+  _id: Submarine
   _isPassable: 1
   _wasteOfFuel: 1
