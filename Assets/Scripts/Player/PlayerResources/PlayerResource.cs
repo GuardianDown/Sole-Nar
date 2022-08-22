@@ -12,6 +12,8 @@ namespace SoleNar.Player
         protected int _maxValue;
         protected int _currentValue;
 
+        public abstract string ID { get; }
+
         public event Action<int> onResourceValueChanged;
 
         public PlayerResourceInt(IPlayerData playerData)
@@ -35,22 +37,14 @@ namespace SoleNar.Player
 
         protected abstract int GetMaxValue();
 
-        public virtual void Increase(int value)
+        public virtual void AddValue(int value)
         {
             _currentValue += value;
             if (_currentValue > _maxValue)
                 _currentValue = _maxValue;
-            onResourceValueChanged?.Invoke(_currentValue);
-            Debug.LogError(_currentValue);
-        }
-
-        public virtual void Decrease(int value)
-        {
-            _currentValue -= value;
-            if (_currentValue <= 0)
+            else if (_currentValue <= 0)
                 _currentValue = 0;
             onResourceValueChanged?.Invoke(_currentValue);
-            Debug.LogError(_currentValue);
         }
     }
 }

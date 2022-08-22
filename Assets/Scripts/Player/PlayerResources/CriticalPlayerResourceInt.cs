@@ -13,9 +13,9 @@ namespace SoleNar.Player
 
         }
 
-        public override void Decrease(int value)
+        public override void AddValue(int value)
         {
-            base.Decrease(value);
+            base.AddValue(value);
             if (_currentValue <= 0)
                 onResourceOver?.Invoke();
         }

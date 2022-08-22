@@ -1,5 +1,8 @@
+using SoleNar.Events;
 using SoleNar.Map;
 using SoleNar.Player;
+using SoleNar.UI;
+using System.Collections.Generic;
 using Zenject;
 
 namespace SoleNar.SceneInitializer
@@ -11,21 +14,24 @@ namespace SoleNar.SceneInitializer
 
         private readonly IPlayerMovement _playerMovement;
         private readonly IPlayerData _playerData;
-        private readonly IPlayerTurnHandler _playerTurnHandler;
         private readonly IPlayerDeath _playerDeath;
+
+        private readonly ITileEventCaller _tileEventCaller;
 
         [Inject]
         public GameSceneInitializer(ITilemapGenerator tilemapGenerator, ITilemapClickHandler tilemapClickHandler,
-            IPlayerMovement playerMovement, IPlayerData playerData, IPlayerTurnHandler playerTurnHandler,
-            IPlayerDeath playerDeath)
+            IPlayerMovement playerMovement, IPlayerData playerData,
+            IPlayerDeath playerDeath, PlayerFuelPresenter playerFuelPresenter,
+            ITileEventCaller tileEventCaller)
         {
             _tilemapGenerator = tilemapGenerator;
             _tilemapClickHandler = tilemapClickHandler;
 
             _playerMovement = playerMovement;
             _playerData = playerData;
-            _playerTurnHandler = playerTurnHandler;
             _playerDeath = playerDeath;
+
+            _tileEventCaller = tileEventCaller;
 
             Initialize();
         }

@@ -4,6 +4,10 @@ namespace SoleNar.Player
 {
     internal sealed class PlayerHealth : CriticalPlayerResourceInt
     {
+        private const string Id = "Health";
+
+        public override string ID => Id;
+
         [Inject]
         public PlayerHealth(IPlayerData playerData) : base(playerData)
         {
