@@ -64,8 +64,10 @@ namespace SoleNar.Map
         {
             Vector3 tilemapPosition = new Vector3
             (
-                _tilemapBuildData.Columns % 2 == 0 ? 0f : _tilemapView.Grid.cellSize.x / -2f,
-                _tilemapBuildData.Rows % 2 == 0 ? 0f : _tilemapView.Grid.cellSize.y / 2f,
+                _tilemapBuildData.Columns % 2 == 0 ? _tilemapView.Tilemap.transform.position.x 
+                    : _tilemapView.Tilemap.transform.position.x + _tilemapView.Grid.cellSize.x / -2f,
+                _tilemapBuildData.Rows % 2 == 0 ? _tilemapView.Tilemap.transform.position.y 
+                    : _tilemapView.Tilemap.transform.position.y + _tilemapView.Grid.cellSize.y / 2f,
                 0f
             );
             _tilemapView.Grid.transform.position = tilemapPosition;

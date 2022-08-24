@@ -12,6 +12,8 @@ namespace SoleNar.Events
         private readonly List<ITileEvent> _tileEvents;
         private readonly IPlayerMovement _playerMovement;
 
+        private ITileEvent _currentTileEvent;
+
         public TileEventCaller(ITilemapClickHandler tilemapClickHandler,  IClickValidator clickValidator, 
             List<ITileEvent> tileEvents, IPlayerMovement playerMovement)
         {
@@ -32,10 +34,30 @@ namespace SoleNar.Events
                     if(tileEvent.TryStartEvent(tileID, tilePosition))
                     {
                         _tilemapClickHandler.Disable();
+                        _currentTileEvent = tileEvent;
+                        DisableMapClick();
+                        Subscribe();
                         return;
                     }
                 }
             }
         }
+
+        private void Subscribe()
+        {
+            if (_currentTileEvent != null)
+                Unsubscribe();
+            _currentTileEvent.onClosed += EnableMapClick;
+        }
+
+        private void Unsubscribe()
+        {
+            _currentTileEvent.onClosed -= EnableMapClick;
+        }
+
+        private void EnableMapClick() => _tilemapClickHandler.Enable();
+
+        private void DisableMapClick() => _tilemapClickHandler.Disable();
+
     }
 }

@@ -6,7 +6,7 @@ namespace SoleNar.Events
     public interface ITileEvent
     {
         event Action onCompleted;
-        event Action onIgnored;
+        event Action onClosed;
 
         bool TryStartEvent(string tileID, Vector3Int tilePosition);
     }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8861bd8100361d42b47544ce06f9cce, type: 3}
+  m_Name: EaterEnemyData
+  m_EditorClassIdentifier: 
+  _enemySprites:
+  - {fileID: -8365415153435932017, guid: 472f75334a1843f43b0f84b374bed505, type: 3}
+  - {fileID: -7440056290859494686, guid: 472f75334a1843f43b0f84b374bed505, type: 3}
+  - {fileID: -8675913996689489472, guid: 472f75334a1843f43b0f84b374bed505, type: 3}
+  - {fileID: -8295091657406407381, guid: 472f75334a1843f43b0f84b374bed505, type: 3}
+  _attackStrenght: 2
+  _health: 4

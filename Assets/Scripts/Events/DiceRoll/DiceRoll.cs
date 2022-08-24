@@ -4,6 +4,12 @@ namespace SoleNar.Events
 {
     internal sealed class DiceRoll : IDiceRoll
     {
-        public int GetResult() => Random.Range(0, 6);
+        private const int RollMinValue = 0;
+        private const int RollMaxValue = 6;
+
+        public int MinValue => RollMinValue;
+        public int MaxValue => RollMaxValue;
+
+        public int GetResult() => Random.Range(RollMinValue, RollMaxValue);
     }
 }

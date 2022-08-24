@@ -39,6 +39,9 @@ namespace SoleNar.Events
         [SerializeField]
         private int _battleWinResourceCount;
 
+        [SerializeField]
+        private EnemyData[] _enemiesData = null;
+
         public IEnumerable<string> AttackTexts => _attackTexts;
         public IEnumerable<string> RetreatTexts => _retreatTexts;
         public IEnumerable<string> BattleWinTexts => _battleWinTexts;
@@ -48,5 +51,6 @@ namespace SoleNar.Events
         public int UpperBoundOfBadResult => _upperBoundOfBadResult;
         public string BattleWinResourceID => _battleWinResourceID;
         public int BattleWinResourceCount => _battleWinResourceCount;
+        public IEnumerable<EnemyData> EnemiesData => _enemiesData;
     }
 }

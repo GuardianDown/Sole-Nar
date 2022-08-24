@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 8950554538393151568}
+  _defaultSprite: {fileID: 4872247679646407538, guid: 9352840bfc2cbbb4589759338c515b37, type: 3}
   _sprites:
-  - {fileID: 4872247679646407538, guid: 9352840bfc2cbbb4589759338c515b37, type: 3}
   - {fileID: 4612060786866191798, guid: 9352840bfc2cbbb4589759338c515b37, type: 3}
   - {fileID: -6061592271063066594, guid: 9352840bfc2cbbb4589759338c515b37, type: 3}
   - {fileID: 3737950586566778304, guid: 9352840bfc2cbbb4589759338c515b37, type: 3}
