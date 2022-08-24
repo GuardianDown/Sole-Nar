@@ -1,50 +1,47 @@
 using System;
 using UnityEngine;
-using Zenject;
 
 namespace SoleNar.Player
 {
-    public abstract class PlayerResourceInt : IPlayerResource<int>
+    internal sealed class PlayerResource : IPlayerResource<int>
     {
-        protected readonly IPlayerData _playerData;
+        private readonly string _id;
 
-        protected int _startValue;
-        protected int _maxValue;
-        protected int _currentValue;
+        private int _startValue;
+        private int _currentValue;
+        private int _maxValue;
 
-        public abstract string ID { get; }
+        public string ID => _id;
+        public int CurrentValue => _currentValue;
 
-        public event Action<int> onResourceValueChanged;
+        public event Action<string, int> onResourceValueChanged;
 
-        public PlayerResourceInt(IPlayerData playerData)
+        public PlayerResource(IPlayerResourceData<int> data)
         {
-            _playerData = playerData;
+            _id = data.ID;
+            _startValue = data.StartValue;
+            _maxValue = data.MaxValue;
 
-            _startValue = GetStartValue();
-            _maxValue = GetMaxValue();
-
-            if (_maxValue <= 0)
-                _maxValue = 1;
-            if (_startValue <= 0)
-                _startValue = 1;
+            if (_startValue < 0)
+                _startValue = 0;
+            if (_maxValue < 0)
+                _maxValue = 0;
             if (_startValue > _maxValue)
                 _startValue = _maxValue;
 
             _currentValue = _startValue;
         }
 
-        protected abstract int GetStartValue();
-
-        protected abstract int GetMaxValue();
-
-        public virtual void AddValue(int value)
+        public void AddValue(int value)
         {
-            _currentValue += value;
-            if (_currentValue > _maxValue)
-                _currentValue = _maxValue;
-            else if (_currentValue <= 0)
-                _currentValue = 0;
-            onResourceValueChanged?.Invoke(_currentValue);
+            _currentValue = Mathf.Clamp(_currentValue + value, 0, _maxValue);
+            onResourceValueChanged.Invoke(_id, _currentValue);
+        }
+
+        public void SubtractValue(int value)
+        {
+            _currentValue = Mathf.Clamp(_currentValue - value, 0, _maxValue);
+            onResourceValueChanged.Invoke(_id, _currentValue);
         }
     }
 }

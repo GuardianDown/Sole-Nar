@@ -123,6 +123,97 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &126054117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126054118}
+  - component: {fileID: 126054119}
+  m_Layer: 0
+  m_Name: BattleViewInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &126054118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126054117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 478683117}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &126054119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126054117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed09a8c144a9e8b4ab9906c01a55f82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleViewPrefab: {fileID: 4123397537660611388, guid: 8d01ce99c3b029340beb6a649e586c18, type: 3}
+--- !u!1 &152932643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152932644}
+  - component: {fileID: 152932645}
+  m_Layer: 0
+  m_Name: TreasureEventInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &152932644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152932643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1231693996}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152932645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152932643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba641ad4cc731b4293b2441285fd764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treasureEventData:
+  - {fileID: 11400000, guid: d2cdbb3a06037464dbed21a063e8ed16, type: 2}
 --- !u!1 &231589447
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +347,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4680ae926dbf2149b163b8a653c0e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 11400000, guid: 052659f70a442cb4097dceb14d08dd47, type: 2}
+  _playerResourceData:
+  - {fileID: 11400000, guid: 99320abd0db220049bff593a1033c6d2, type: 2}
+  - {fileID: 11400000, guid: cad837775d99eb24198a4bd7e6415bc2, type: 2}
+  - {fileID: 11400000, guid: 4ffb2b83a86f1d84586df4920a08580f, type: 2}
+  - {fileID: 11400000, guid: aaab6b029f777dc458f84e1e7daa4c42, type: 2}
+  - {fileID: 11400000, guid: d3c581095cc0f894f80f477e192c539b, type: 2}
+  - {fileID: 11400000, guid: ad232c0c6cad73a468872ab2d0c59eec, type: 2}
+  - {fileID: 11400000, guid: fa26d34785789ab45895915108c28c3c, type: 2}
+  - {fileID: 11400000, guid: b932880fc80e18949a7369d3bfcb4391, type: 2}
+  - {fileID: 11400000, guid: b329aeda3d85cd345b7562a34899897a, type: 2}
 --- !u!1 &421522330
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +368,7 @@ GameObject:
   - component: {fileID: 421522331}
   - component: {fileID: 421522332}
   m_Layer: 0
-  m_Name: FuelViewInstaller
+  m_Name: ResourcesViewInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33c77321bc490b49b689a2b799c0cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fuelView: {fileID: 7319278696387310906, guid: f61d8d30ed5d2d442bf0d5999028b100, type: 3}
+  _resourcesCanvas: {fileID: 5609512764261898460, guid: f61d8d30ed5d2d442bf0d5999028b100, type: 3}
 --- !u!1 &460358230
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +477,8 @@ Transform:
   - {fileID: 1044842675}
   - {fileID: 421522331}
   - {fileID: 260705848}
+  - {fileID: 1234516231}
+  - {fileID: 126054118}
   m_Father: {fileID: 856855311}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -502,50 +604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 6556872350793821280, guid: 158d6d45131a2564c9b113ad12847b28, type: 3}
---- !u!1 &754752877
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 754752879}
-  - component: {fileID: 754752878}
-  m_Layer: 0
-  m_Name: PlayerFuelInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &754752878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754752877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85f75b25d09a654ba8c4c44971d8f18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &754752879
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754752877}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1605528980}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &789065343
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +646,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605528980}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &789862523
 GameObject:
@@ -722,7 +780,6 @@ MonoBehaviour:
   - {fileID: 1265426474}
   - {fileID: 317972108}
   - {fileID: 1785898861}
-  - {fileID: 754752878}
   - {fileID: 789065344}
   - {fileID: 1517851219}
   - {fileID: 1044842676}
@@ -733,6 +790,11 @@ MonoBehaviour:
   - {fileID: 260705847}
   - {fileID: 1773111907}
   - {fileID: 1586494762}
+  - {fileID: 152932645}
+  - {fileID: 1959925929}
+  - {fileID: 1234516232}
+  - {fileID: 126054119}
+  - {fileID: 1345411321}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -931,9 +993,57 @@ Transform:
   - {fileID: 2063611939}
   - {fileID: 1773111908}
   - {fileID: 1586494763}
+  - {fileID: 152932644}
+  - {fileID: 1959925930}
+  - {fileID: 1345411322}
   m_Father: {fileID: 856855311}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1234516230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234516231}
+  - component: {fileID: 1234516232}
+  m_Layer: 0
+  m_Name: PanaceniteViewInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1234516231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234516230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 478683117}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1234516232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234516230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732bf17ddabc28a4a838e836e9e8ae9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panaceniteEventViewPrefab: {fileID: 265849859, guid: 965860dd999613848b6f975ab763fb63, type: 3}
 --- !u!1 &1265426473
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1087,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1605528980}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1345411320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1345411322}
+  - component: {fileID: 1345411321}
+  m_Layer: 0
+  m_Name: BattleInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1345411321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345411320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a46f58a887b4c418ae669a0ece4ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1345411322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345411320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1231693996}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1439973875
 GameObject:
@@ -1192,7 +1346,6 @@ Transform:
   - {fileID: 1265426475}
   - {fileID: 317972107}
   - {fileID: 1785898862}
-  - {fileID: 754752879}
   - {fileID: 789065345}
   - {fileID: 1915279845}
   m_Father: {fileID: 856855311}
@@ -1387,7 +1540,7 @@ GameObject:
   - component: {fileID: 1915279845}
   - component: {fileID: 1915279846}
   m_Layer: 0
-  m_Name: PlayerFuelPresenterInstaller
+  m_Name: PlayerResourcesPresenterInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1406,7 +1559,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605528980}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1915279846
 MonoBehaviour:
@@ -1420,6 +1573,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1654b68d58f7d14418a4c03f3bfc2dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1959925928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959925930}
+  - component: {fileID: 1959925929}
+  m_Layer: 0
+  m_Name: PanaceniteEventDataInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1959925929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959925928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c79efac93e6eb4c99d9b6a84501a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panaceniteEventData:
+  - {fileID: 11400000, guid: c757e15603e7d13469c743f9b94b4ea8, type: 2}
+--- !u!4 &1959925930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959925928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1231693996}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974980742
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,25 +7,32 @@ using UnityEngine;
 
 namespace SoleNar.Events
 {
+    //TODO: REFACTIORING TILE EVENTS!
     public abstract class TileEvent<DataType, ViewType> : ITileEvent 
         where DataType : TileEventData 
         where ViewType : ITileEventView
     {
         private readonly IPlayerMovement _playerMovement;
         private readonly IEnumerable<DataType> _eventData;
+        private readonly IPlayerResource<int> _playerFuel;
+        protected readonly IEnumerable<IPlayerResource<int>> _playerResources;
         protected readonly ViewType _eventView;
 
         private Vector3Int _currentTilePosition;
         protected DataType _currentEventData;
 
-        public abstract event Action onCompleted;
-        public abstract event Action onIgnored;
+        public event Action onClosed;
 
-        public TileEvent(IPlayerMovement playerMovement, IEnumerable<DataType> eventData, ViewType eventView)
+        public abstract event Action onCompleted;
+
+        public TileEvent(IPlayerMovement playerMovement, IEnumerable<DataType> eventData, 
+            ViewType eventView, IEnumerable<IPlayerResource<int>> playerResources)
         {
             _playerMovement = playerMovement;
             _eventData = eventData;
             _eventView = eventView;
+            _playerResources = playerResources;
+            _playerFuel = playerResources.SingleOrDefault(resource => resource.ID == PlayerResourcesID.FuelID);
         }
 
         protected abstract void Subscribe();
@@ -54,12 +61,16 @@ namespace SoleNar.Events
         {
             Unsubscribe();
             _eventView.ResetDiceView();
+            onClosed?.Invoke();
         }
 
         protected void Move()
         {
             if (_currentEventData.IsPassable)
+            {
                 _playerMovement.Move(_currentTilePosition);
+                _playerFuel.SubtractValue(_currentEventData.WasteOfFuel);
+            }
         }
 
         protected void SetRandomText(IEnumerable<string> textsCollection) =>

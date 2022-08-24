@@ -2,23 +2,32 @@ using SoleNar.Player;
 using SoleNar.UI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Zenject;
 
 namespace SoleNar.Events
 {
+    //TODO: REFACTIORING TILE EVENTS!
     internal sealed class EnemyTileEvent : TileEvent<EnemyEventData, IEnemyEventView>
     {
         private readonly IDiceRoll _diceRoll;
+        private readonly BattleEvent _battleEvent;
+        private readonly IPlayerResource<int> _playerStealth;
 
         public override event Action onCompleted;
-        public override event Action onIgnored;
 
         [Inject]
         public EnemyTileEvent(IEnumerable<EnemyEventData> battleEventData,
             IEnemyEventView battleEventView,
             IDiceRoll diceRoll,
-            IPlayerMovement playerMovement) : base(playerMovement, battleEventData, battleEventView) => 
+            IPlayerMovement playerMovement,
+            BattleEvent battleEvent,
+            IEnumerable<IPlayerResource<int>> playerResources) : base(playerMovement, battleEventData, battleEventView, playerResources)
+        {
             _diceRoll = diceRoll;
+            _battleEvent = battleEvent;
+            _playerStealth = _playerResources.SingleOrDefault(resource => resource.ID == PlayerResourcesID.StealthID);
+        }
 
         protected override void Subscribe()
         {
@@ -39,20 +48,45 @@ namespace SoleNar.Events
         private void Attack()
         {
             SetRandomText(_currentEventData.AttackTexts);
+            InitializeBattleView();
             Move();
             onCompleted?.Invoke();
+        }
+
+        private void InitializeBattleView()
+        {
+            EnemyData enemyData = _currentEventData.EnemiesData
+                .ElementAt(UnityEngine.Random.Range(0, _currentEventData.EnemiesData.Count()));
+            _battleEvent.StartBattle(enemyData);
+            _battleEvent.onBattleEnd += EndBattle;
         }
 
         private void Stealth()
         {
             int result = _diceRoll.GetResult();
-            SetRandomText(result < 3 ? _currentEventData.StrealthFailedTexts : _currentEventData.StealthSuccessTexts);
+            if(result > _diceRoll.MaxValue - _playerStealth.CurrentValue)
+            {
+                
+                SetRandomText(_currentEventData.StealthSuccessTexts);
+                _eventView.SetEndEventState();
+                Move();
+            }
+            else
+            {
+                SetRandomText(_currentEventData.StrealthFailedTexts);
+                _eventView.SetStealthFailedState();
+            }
             _eventView.SetDiceValue(result);
-            Move();
-            onIgnored.Invoke();
         }
 
         private void Retreat() => 
             SetRandomText(_currentEventData.RetreatTexts);
+
+        private void EndBattle()
+        {
+            _battleEvent.onBattleEnd -= EndBattle;
+            SetRandomText(_currentEventData.BattleWinTexts);
+            _eventView.SetEndEventState();
+        }
     }
 }

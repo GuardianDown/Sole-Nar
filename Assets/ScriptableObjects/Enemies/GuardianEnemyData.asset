@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8861bd8100361d42b47544ce06f9cce, type: 3}
+  m_Name: GuardianEnemyData
+  m_EditorClassIdentifier: 
+  _enemySprites:
+  - {fileID: -4505477137365426084, guid: c1515ad7d47894c4c8217241aa7669cf, type: 3}
+  - {fileID: -8647332322024850954, guid: c1515ad7d47894c4c8217241aa7669cf, type: 3}
+  - {fileID: -1126831562618553918, guid: c1515ad7d47894c4c8217241aa7669cf, type: 3}
+  - {fileID: 5362077642580521703, guid: c1515ad7d47894c4c8217241aa7669cf, type: 3}
+  _attackStrenght: 2
+  _health: 10

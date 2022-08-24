@@ -6,23 +6,21 @@ using System;
 
 namespace SoleNar.Events
 {
+    //TODO: REFACTIORING TILE EVENTS!
     internal sealed class InspectTileEvent : TileEvent<InspectEventData, IInspectEventView>
     {
-        private readonly List<IPlayerResource<int>> _playerResources;
         private readonly IDiceRoll _diceRoll;
 
         public override event Action onCompleted;
-        public override event Action onIgnored;
 
         [Inject]
         public InspectTileEvent(IEnumerable<InspectEventData> inspectEventData,
             IInspectEventView inspectEventView, 
             IDiceRoll diceRoll, 
-            List<IPlayerResource<int>> playerResources,
-            IPlayerMovement playerMovement) : base(playerMovement, inspectEventData, inspectEventView)
+            IEnumerable<IPlayerResource<int>> playerResources,
+            IPlayerMovement playerMovement) : base(playerMovement, inspectEventData, inspectEventView, playerResources)
         {
             _diceRoll = diceRoll;
-            _playerResources = playerResources;
         }
 
         protected override void Subscribe()
@@ -52,7 +50,6 @@ namespace SoleNar.Events
         {
             SetRandomText(_currentEventData.IgnoreTexts);
             Move();
-            onIgnored?.Invoke();
         }
 
         private void SetResults(int diceValue)
