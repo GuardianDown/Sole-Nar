@@ -21,7 +21,7 @@ namespace SoleNar.SceneInitializer
         public GameSceneInitializer(ITilemapGenerator tilemapGenerator, ITilemapClickHandler tilemapClickHandler,
             IPlayerMovement playerMovement,
             IPlayerDeath playerDeath, IPlayerResourcesPresenter<int> playerFuelPresenter,
-            ITileEventCaller tileEventCaller)
+            ITileEventCaller tileEventCaller, PlayerWin playerWin)
         {
             _tilemapGenerator = tilemapGenerator;
             _tilemapClickHandler = tilemapClickHandler;
