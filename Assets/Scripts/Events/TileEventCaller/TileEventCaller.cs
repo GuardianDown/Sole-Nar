@@ -1,7 +1,9 @@
 using SoleNar.Map;
 using SoleNar.Player;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace SoleNar.Events
 {
@@ -11,16 +13,20 @@ namespace SoleNar.Events
         private readonly IClickValidator _clickValidator;
         private readonly List<ITileEvent> _tileEvents;
         private readonly IPlayerMovement _playerMovement;
+        private readonly IVisitedTilesData _visitedTilesData;
 
         private ITileEvent _currentTileEvent;
+        private Vector3Int _currentTilePosition;
 
+        [Inject]
         public TileEventCaller(ITilemapClickHandler tilemapClickHandler,  IClickValidator clickValidator, 
-            List<ITileEvent> tileEvents, IPlayerMovement playerMovement)
+            List<ITileEvent> tileEvents, IPlayerMovement playerMovement, IVisitedTilesData visitedTilesData)
         {
             _tilemapClickHandler = tilemapClickHandler;
             _clickValidator = clickValidator;
             _tileEvents = tileEvents;
             _playerMovement = playerMovement;
+            _visitedTilesData = visitedTilesData;
 
             _tilemapClickHandler.onTileClick += CallEvent;
         }
@@ -35,6 +41,7 @@ namespace SoleNar.Events
                     {
                         _tilemapClickHandler.Disable();
                         _currentTileEvent = tileEvent;
+                        _currentTilePosition = tilePosition;
                         DisableMapClick();
                         Subscribe();
                         return;
@@ -48,16 +55,19 @@ namespace SoleNar.Events
             if (_currentTileEvent != null)
                 Unsubscribe();
             _currentTileEvent.onClosed += EnableMapClick;
+            _currentTileEvent.onCompleted += OnEventCompleted;
         }
 
         private void Unsubscribe()
         {
             _currentTileEvent.onClosed -= EnableMapClick;
+            _currentTileEvent.onCompleted -= OnEventCompleted;
         }
 
         private void EnableMapClick() => _tilemapClickHandler.Enable();
 
         private void DisableMapClick() => _tilemapClickHandler.Disable();
 
+        private void OnEventCompleted() => _visitedTilesData.MarkAsVisited(_currentTilePosition);
     }
 }

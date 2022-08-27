@@ -9,22 +9,23 @@ namespace SoleNar.Map
 {
     internal sealed class TilemapClickHandler : ITilemapClickHandler
     {
-        private readonly ITilemapView _tilemapView;
         private readonly ITilemapData _tilemapData;
-        private readonly Camera _camera;
         private readonly Controls _controls;
+        private readonly ITilemapCursorPosition _tilemapCursorPosition;
+
+        private string _currentTileID;
+        private Vector3Int _currentTilePosition;
 
         public event Action<string, Vector3Int> onTileClick;
 
         [Inject]
-        public TilemapClickHandler(ITilemapView tilemapView, ITilemapData tilemapData, Camera camera, Controls controls)
+        public TilemapClickHandler(ITilemapData tilemapData, 
+            Controls controls, 
+            ITilemapCursorPosition tilemapCursorPosition)
         {
-            _tilemapView = tilemapView;
             _tilemapData = tilemapData;
-            _camera = camera;
             _controls = controls;
-
-            _controls.Enable();
+            _tilemapCursorPosition = tilemapCursorPosition;
         }
 
         public void Enable() => 
@@ -33,20 +34,20 @@ namespace SoleNar.Map
         public void Disable() => 
             _controls.Map.Click.started -= OnMouseDown;
 
+        public void Dispose() => Disable();
+
         private void OnMouseDown(InputAction.CallbackContext callbackContext)
         {
-            Vector2 clickPosition = _controls.Map.Position.ReadValue<Vector2>();
-            Vector3Int cellPosition = _tilemapView.Tilemap.WorldToCell(_camera.ScreenToWorldPoint(clickPosition));
-            string tileID;
+            _currentTilePosition = _tilemapCursorPosition.Position;
             try
             {
-                tileID = _tilemapData.GetTile(cellPosition).ID;
+                _currentTileID = _tilemapData.GetTile(_currentTilePosition).ID;
+                onTileClick?.Invoke(_currentTileID, _currentTilePosition);
             }
             catch(KeyNotFoundException)
             {
                 return;
             }
-            onTileClick?.Invoke(tileID, cellPosition);
         }
     }
 }

@@ -1,6 +1,8 @@
+using System;
+
 namespace SoleNar.SceneInitializer
 {
-    public interface ISceneInitializer
+    public interface ISceneInitializer : IDisposable
     {
         void Initialize();
     }

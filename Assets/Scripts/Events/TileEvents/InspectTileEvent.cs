@@ -3,6 +3,7 @@ using SoleNar.Player;
 using System.Collections.Generic;
 using Zenject;
 using System;
+using SoleNar.Map;
 
 namespace SoleNar.Events
 {
@@ -18,7 +19,8 @@ namespace SoleNar.Events
             IInspectEventView inspectEventView, 
             IDiceRoll diceRoll, 
             IEnumerable<IPlayerResource<int>> playerResources,
-            IPlayerMovement playerMovement) : base(playerMovement, inspectEventData, inspectEventView, playerResources)
+            IPlayerMovement playerMovement, 
+            IVisitedTilesData visitedTilesData) : base(playerMovement, inspectEventData, inspectEventView, playerResources, visitedTilesData)
         {
             _diceRoll = diceRoll;
         }

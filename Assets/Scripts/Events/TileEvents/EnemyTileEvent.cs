@@ -1,3 +1,4 @@
+using SoleNar.Map;
 using SoleNar.Player;
 using SoleNar.UI;
 using System;
@@ -22,7 +23,8 @@ namespace SoleNar.Events
             IDiceRoll diceRoll,
             IPlayerMovement playerMovement,
             BattleEvent battleEvent,
-            IEnumerable<IPlayerResource<int>> playerResources) : base(playerMovement, battleEventData, battleEventView, playerResources)
+            IEnumerable<IPlayerResource<int>> playerResources,
+            IVisitedTilesData visitedTilesData) : base(playerMovement, battleEventData, battleEventView, playerResources, visitedTilesData)
         {
             _diceRoll = diceRoll;
             _battleEvent = battleEvent;

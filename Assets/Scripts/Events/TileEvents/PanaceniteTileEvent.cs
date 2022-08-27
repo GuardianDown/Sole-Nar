@@ -3,6 +3,7 @@ using SoleNar.UI;
 using System;
 using SoleNar.Player;
 using System.Linq;
+using SoleNar.Map;
 
 namespace SoleNar.Events
 {
@@ -16,7 +17,8 @@ namespace SoleNar.Events
         public PanaceniteTileEvent(IPlayerMovement playerMovement,
             IPanaceniteEventView eventView, 
             IEnumerable<PanaceniteEventData> eventData,
-            IEnumerable<IPlayerResource<int>> playerResources) : base(playerMovement, eventData, eventView, playerResources)
+            IEnumerable<IPlayerResource<int>> playerResources,
+            IVisitedTilesData visitedTilesData) : base(playerMovement, eventData, eventView, playerResources, visitedTilesData)
         {
 
         }

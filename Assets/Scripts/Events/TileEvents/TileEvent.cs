@@ -1,3 +1,4 @@
+using SoleNar.Map;
 using SoleNar.Player;
 using SoleNar.UI;
 using System;
@@ -15,6 +16,7 @@ namespace SoleNar.Events
         private readonly IPlayerMovement _playerMovement;
         private readonly IEnumerable<DataType> _eventData;
         private readonly IPlayerResource<int> _playerFuel;
+        private readonly IVisitedTilesData _visitedTilesData;
         protected readonly IEnumerable<IPlayerResource<int>> _playerResources;
         protected readonly ViewType _eventView;
 
@@ -26,12 +28,13 @@ namespace SoleNar.Events
         public abstract event Action onCompleted;
 
         public TileEvent(IPlayerMovement playerMovement, IEnumerable<DataType> eventData, 
-            ViewType eventView, IEnumerable<IPlayerResource<int>> playerResources)
+            ViewType eventView, IEnumerable<IPlayerResource<int>> playerResources, IVisitedTilesData visitedTilesData)
         {
             _playerMovement = playerMovement;
             _eventData = eventData;
             _eventView = eventView;
             _playerResources = playerResources;
+            _visitedTilesData = visitedTilesData;
             _playerFuel = playerResources.SingleOrDefault(resource => resource.ID == PlayerResourcesID.FuelID);
         }
 
@@ -47,10 +50,18 @@ namespace SoleNar.Events
                 {
                     _currentEventData = data;
                     _currentTilePosition = tilePosition;
-                    InitializeView();
-                    Subscribe();
-                    _eventView.Enable();
-                    return true;
+
+                    if (_visitedTilesData.IsTileVisited(tilePosition))
+                    {
+                        Move();
+                    }
+                    else
+                    {
+                        InitializeView();
+                        Subscribe();
+                        _eventView.Enable();
+                        return true;
+                    }
                 }
             }
 
@@ -75,6 +86,11 @@ namespace SoleNar.Events
 
         protected void SetRandomText(IEnumerable<string> textsCollection) =>
             _eventView.SetEventText(textsCollection.ElementAt(UnityEngine.Random.Range(0, textsCollection.Count())));
+
+        protected void OnCompleted()
+        {
+            _visitedTilesData.MarkAsVisited(_currentTilePosition);
+        }
 
         private void InitializeView()
         {
