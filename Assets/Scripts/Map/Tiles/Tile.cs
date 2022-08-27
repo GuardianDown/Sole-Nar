@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 namespace SoleNar.Map
 {
     [CreateAssetMenu(fileName = "Tile", menuName = "GameData/Tile")]
-    internal class Tile : ScriptableObject, ITile
+    internal sealed class Tile : ScriptableObject, ITile
     {
         [SerializeField] 
         private TileBase _view = null;
@@ -12,7 +12,11 @@ namespace SoleNar.Map
         [SerializeField]
         private string _id = null;
 
+        [SerializeField]
+        private bool _isPassable;
+
         public TileBase View => _view;
         public string ID => _id;
+        public bool IsPassable => _isPassable;
     }
 }

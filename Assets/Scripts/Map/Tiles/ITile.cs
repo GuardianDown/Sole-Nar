@@ -6,5 +6,6 @@ namespace SoleNar.Map
     {
         TileBase View { get; }
         string ID { get; }
+        bool IsPassable { get; }
     }
 }

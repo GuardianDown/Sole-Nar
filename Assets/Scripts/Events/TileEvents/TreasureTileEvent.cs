@@ -4,6 +4,7 @@ using System;
 using SoleNar.Player;
 using Zenject;
 using System.Linq;
+using SoleNar.Map;
 
 namespace SoleNar.Events
 {
@@ -20,7 +21,8 @@ namespace SoleNar.Events
             IDiceRoll diceRoll,
             IPlayerMovement playerMovement,
             BattleEvent battleEvent,
-            IEnumerable<IPlayerResource<int>> playerResources) : base(playerMovement, treasureEventData, eventView, playerResources)
+            IEnumerable<IPlayerResource<int>> playerResources,
+            IVisitedTilesData visitedTilesData) : base(playerMovement, treasureEventData, eventView, playerResources, visitedTilesData)
         {
             _battleEvent = battleEvent;
         }

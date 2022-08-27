@@ -5,6 +5,9 @@ namespace SoleNar.Map
     internal sealed class TilemapGeneratorInstaller : MonoInstaller
     {
         public override void InstallBindings() =>
-            Container.Bind<ITilemapGenerator>().To<PseudoTilemapGenerator>().AsSingle();
+            Container
+            .Bind<ITilemapGenerator>()
+            .To<PseudoTilemapGenerator>()
+            .AsSingle();
     }
 }

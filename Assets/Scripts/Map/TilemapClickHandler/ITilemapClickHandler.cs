@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SoleNar.Map
 {
-    public interface ITilemapClickHandler
+    public interface ITilemapClickHandler : IDisposable
     {
         void Enable();
 

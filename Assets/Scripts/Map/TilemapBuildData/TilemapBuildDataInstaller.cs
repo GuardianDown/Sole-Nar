@@ -9,6 +9,9 @@ namespace SoleNar.Map
         private TilemapBuildData _tilemapBuildData = null;
 
         public override void InstallBindings() => 
-            Container.Bind<ITilemapBuildData>().FromInstance(_tilemapBuildData).AsSingle();
+            Container
+            .Bind<ITilemapBuildData>()
+            .FromInstance(_tilemapBuildData)
+            .AsSingle();
     }
 }

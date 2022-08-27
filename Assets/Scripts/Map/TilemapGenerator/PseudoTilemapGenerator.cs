@@ -10,24 +10,31 @@ namespace SoleNar.Map
     {
         private readonly ITilemapBuildData _tilemapBuildData;
         private readonly ITilemapView _tilemapView;
+        private readonly IBorderTilemapView _borderTilemapView;
         private readonly ITilemapData _tilemapData;
+        private readonly IVisitedTilesData _visitedTilesData;
 
         [Inject]
-        public PseudoTilemapGenerator(ITilemapBuildData tilemapBuildData, ITilemapView tilemapView, ITilemapData tilemapData)
+        public PseudoTilemapGenerator(ITilemapBuildData tilemapBuildData, 
+            ITilemapView tilemapView,
+            IBorderTilemapView borderTilemapView,
+            ITilemapData tilemapData, 
+            IVisitedTilesData visitedTilesData)
         {
             _tilemapBuildData = tilemapBuildData;
             _tilemapView = tilemapView;
+            _borderTilemapView = borderTilemapView;
             _tilemapData = tilemapData;
+            _visitedTilesData = visitedTilesData;
         }
 
         public void GenerateTilemap()
         {
-            ITilemapData tilemapData = CreateTilemapData();
+            CreateTilemap();
             SetTilemapPosition();
-            InitializeTilemap(tilemapData);
         }
 
-        private ITilemapData CreateTilemapData()
+        private void CreateTilemap()
         {
             int rows = _tilemapBuildData.Rows;
             int columns = _tilemapBuildData.Columns;
@@ -38,6 +45,8 @@ namespace SoleNar.Map
                 int currentTileIndex;
                 int currentRow;
                 int currentColumn;
+                ITile currentTile;
+                Vector3Int currentTilePosition;
 
                 for (int i = 0; i < rows; ++i)
                 {
@@ -45,14 +54,18 @@ namespace SoleNar.Map
                     {
                         currentTileIndex = i * columns + j;
                         if (currentTileIndex >= tiles.Count())
-                            return _tilemapData;
+                            return;
                         currentRow = -i + rows / 2 - 1;
                         currentColumn = j - (columns / 2);
-                        _tilemapData.AddTile(tiles.ElementAt(currentTileIndex), new Vector3Int(currentColumn, currentRow, 0));
+                        currentTile = tiles.ElementAt(currentTileIndex);
+                        currentTilePosition = new Vector3Int(currentColumn, currentRow, 0);
+                        _tilemapData.AddTile(currentTile, currentTilePosition);
+                        _visitedTilesData.AddTile(currentTilePosition, !currentTile.IsPassable);
+                        _tilemapView.Tilemap.SetTile(currentTilePosition, currentTile.View);
+                        _borderTilemapView.Tilemap.SetTile(currentTilePosition,
+                            currentTile.IsPassable ? _borderTilemapView.TileActiveBorder : _borderTilemapView.TileUnactiveBorder);
                     }
                 }
-
-                return _tilemapData;
             }
             else
             {
@@ -71,14 +84,6 @@ namespace SoleNar.Map
                 0f
             );
             _tilemapView.Grid.transform.position = tilemapPosition;
-        }
-
-        private void InitializeTilemap(ITilemapData tilemapData)
-        {
-            foreach (KeyValuePair<Vector3Int, ITile> tileData in tilemapData)
-            {
-                _tilemapView.Tilemap.SetTile(tileData.Key, tileData.Value.View);
-            }
         }
     }
 }
